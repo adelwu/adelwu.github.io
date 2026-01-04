@@ -205,8 +205,26 @@ Looking forward to hearing from you!
           </div>
 
           <div>
-            <label htmlFor="budget" className="block text-sm text-text-tertiary mb-2">
+            <label htmlFor="budget" className="block text-sm text-text-tertiary mb-2 flex items-center gap-1.5">
               Budget Range
+              <span className="relative group">
+                <svg
+                  className="w-4 h-4 text-text-muted cursor-help"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-3 py-2 bg-text-primary text-bg-page text-xs rounded-lg whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                  Depending on the type of event, I can be flexible with budget. I also accept optional tips!
+                </span>
+              </span>
             </label>
             <input
               type="text"
@@ -214,7 +232,7 @@ Looking forward to hearing from you!
               name="budget"
               value={formData.budget}
               onChange={handleChange}
-              placeholder="e.g., $500-$1000"
+              placeholder="e.g., $1k-2k"
               className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent placeholder:text-text-muted"
             />
           </div>
@@ -238,7 +256,7 @@ Looking forward to hearing from you!
 
       <button
         type="submit"
-        className="inline-block text-sm tracking-wide border-b border-border-strong pb-1 hover:border-border-active hover:text-text-secondary transition-all duration-DEFAULT mt-8"
+        className="inline-block px-6 py-3 bg-text-primary text-bg-page rounded-pill text-sm font-medium hover:bg-text-secondary transition-colors mt-8"
       >
         Send Inquiry
       </button>

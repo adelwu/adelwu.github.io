@@ -8,7 +8,6 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/art", label: "Live Art" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
