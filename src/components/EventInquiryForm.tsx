@@ -1,13 +1,7 @@
 "use client";
 
-import { useState, FormEvent } from "react";
-
-// Email is constructed at runtime to prevent bot scraping
-const getRecipientEmail = () => {
-  const user = "dlw8320";
-  const domain = "gmail.com";
-  return `${user}@${domain}`;
-};
+import { useState, FormEvent, useEffect } from "react";
+import confetti from "canvas-confetti";
 
 interface FormData {
   fullName: string;
@@ -21,6 +15,18 @@ interface FormData {
   budget: string;
 }
 
+const initialFormData: FormData = {
+  fullName: "",
+  email: "",
+  message: "",
+  referralSource: "",
+  eventDate: "",
+  guestCount: "",
+  eventTime: "",
+  location: "",
+  budget: "",
+};
+
 const referralOptions = [
   "Google Search",
   "Social Media",
@@ -31,63 +37,110 @@ const referralOptions = [
 ];
 
 export default function EventInquiryForm() {
-  const [formData, setFormData] = useState<FormData>({
-    fullName: "",
-    email: "",
-    message: "",
-    referralSource: "",
-    eventDate: "",
-    guestCount: "",
-    eventTime: "",
-    location: "",
-    budget: "",
-  });
+  const [formData, setFormData] = useState<FormData>(initialFormData);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errorMessage) {
+      setErrorMessage(null);
+    }
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setErrorMessage(null);
 
-    // Build email body
-    const emailBody = `
-Hi Adel,
+    try {
+      const response = await fetch("https://formspree.io/f/xzdzkadr", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-I'd like to inquire about your live portrait services for my event.
+      if (!response.ok) {
+        throw new Error("Failed to send inquiry");
+      }
 
-Name: ${formData.fullName}
-Email: ${formData.email}
-
-Message:
-${formData.message}
-
-How I heard about you: ${formData.referralSource}
-
-Event Details:
-- Date: ${formData.eventDate || "Not specified"}
-- Time: ${formData.eventTime || "Not specified"}
-- Location: ${formData.location || "Not specified"}
-- Guest Count: ${formData.guestCount || "Not specified"}
-- Budget: ${formData.budget || "Not specified"}
-
-Looking forward to hearing from you!
-    `.trim();
-
-    // Create mailto link with obfuscated email
-    const subject = encodeURIComponent(`Event Inquiry from ${formData.fullName}`);
-    const body = encodeURIComponent(emailBody);
-    const mailtoLink = `mailto:${getRecipientEmail()}?subject=${subject}&body=${body}`;
-
-    // Open email client
-    window.location.href = mailtoLink;
+      setIsSuccess(true);
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
+  const handleReset = () => {
+    setFormData(initialFormData);
+    setIsSuccess(false);
+    setErrorMessage(null);
+  };
+
+  useEffect(() => {
+    if (isSuccess) {
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+      });
+    }
+  }, [isSuccess]);
+
+  if (isSuccess) {
+    return (
+      <div className="text-center py-12">
+        <div className="mb-6">
+          <svg
+            className="w-16 h-16 mx-auto text-green-500"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+        </div>
+        <h3 className="text-2xl font-medium mb-4">Thank you for your inquiry!</h3>
+        <p className="text-text-secondary mb-8">
+          Adel will get back to you in the next 24 hours!
+        </p>
+        <button
+          type="button"
+          onClick={handleReset}
+          className="inline-block px-6 py-3 bg-text-primary text-bg-page rounded-pill text-sm font-medium hover:bg-text-secondary transition-colors"
+        >
+          Submit another inquiry
+        </button>
+      </div>
+    );
+  }
 
   return (
     <form onSubmit={handleSubmit}>
+      {errorMessage && (
+        <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+          {errorMessage}
+        </div>
+      )}
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
         {/* Left Column - Required Fields */}
         <div className="space-y-8">
@@ -100,9 +153,10 @@ Looking forward to hearing from you!
               id="fullName"
               name="fullName"
               required
+              disabled={isSubmitting}
               value={formData.fullName}
               onChange={handleChange}
-              className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent"
+              className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent disabled:opacity-50"
             />
           </div>
 
@@ -115,9 +169,10 @@ Looking forward to hearing from you!
               id="email"
               name="email"
               required
+              disabled={isSubmitting}
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent"
+              className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent disabled:opacity-50"
             />
           </div>
 
@@ -130,10 +185,11 @@ Looking forward to hearing from you!
               name="message"
               required
               rows={4}
+              disabled={isSubmitting}
               value={formData.message}
               onChange={handleChange}
               placeholder="Tell me about your event..."
-              className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent resize-none placeholder:text-text-muted"
+              className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent resize-none placeholder:text-text-muted disabled:opacity-50"
             />
           </div>
 
@@ -145,9 +201,10 @@ Looking forward to hearing from you!
               id="referralSource"
               name="referralSource"
               required
+              disabled={isSubmitting}
               value={formData.referralSource}
               onChange={handleChange}
-              className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent"
+              className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent disabled:opacity-50"
             >
               <option value="">Select an option</option>
               {referralOptions.map((option) => (
@@ -172,9 +229,10 @@ Looking forward to hearing from you!
               type="date"
               id="eventDate"
               name="eventDate"
+              disabled={isSubmitting}
               value={formData.eventDate}
               onChange={handleChange}
-              className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent"
+              className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent disabled:opacity-50"
             />
           </div>
 
@@ -186,9 +244,10 @@ Looking forward to hearing from you!
               type="time"
               id="eventTime"
               name="eventTime"
+              disabled={isSubmitting}
               value={formData.eventTime}
               onChange={handleChange}
-              className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent"
+              className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent disabled:opacity-50"
             />
           </div>
 
@@ -200,10 +259,11 @@ Looking forward to hearing from you!
               type="text"
               id="location"
               name="location"
+              disabled={isSubmitting}
               value={formData.location}
               onChange={handleChange}
               placeholder="City, State or Venue Name"
-              className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent placeholder:text-text-muted"
+              className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent placeholder:text-text-muted disabled:opacity-50"
             />
           </div>
 
@@ -216,58 +276,39 @@ Looking forward to hearing from you!
                 type="number"
                 id="guestCount"
                 name="guestCount"
+                disabled={isSubmitting}
                 value={formData.guestCount}
                 onChange={handleChange}
                 placeholder="e.g., 100"
-                className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent placeholder:text-text-muted"
+                className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent placeholder:text-text-muted disabled:opacity-50"
               />
             </div>
 
             <div>
-              <label htmlFor="budget" className="block text-sm text-text-tertiary mb-2 flex items-center gap-1.5">
+              <label htmlFor="budget" className="block text-sm text-text-tertiary mb-2">
                 Budget
-                <span className="relative group">
-                  <svg
-                    className="w-4 h-4 text-text-muted cursor-help"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-3 py-2 bg-text-primary text-bg-page text-xs rounded-lg whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                    Depending on the type of event, I can be flexible with budget. I also accept optional tips!
-                  </span>
-                </span>
               </label>
               <input
                 type="text"
                 id="budget"
                 name="budget"
+                disabled={isSubmitting}
                 value={formData.budget}
                 onChange={handleChange}
                 placeholder="e.g., $1k-2k"
-                className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent placeholder:text-text-muted"
+                className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent placeholder:text-text-muted disabled:opacity-50"
               />
             </div>
           </div>
 
-          <div className="pt-4 mt-auto">
+          <div className="pt-4 mt-auto flex justify-end">
             <button
               type="submit"
-              className="inline-block px-6 py-3 bg-text-primary text-bg-page rounded-pill text-sm font-medium hover:bg-text-secondary transition-colors"
+              disabled={isSubmitting}
+              className="inline-block px-6 py-3 bg-text-primary text-bg-page rounded-pill text-sm font-medium hover:bg-text-secondary transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Send Inquiry
+              {isSubmitting ? "Sending..." : "Send Inquiry"}
             </button>
-
-            <p className="text-xs text-text-tertiary mt-4">
-              This will open your email client with the form details pre-filled.
-            </p>
           </div>
         </div>
       </div>
