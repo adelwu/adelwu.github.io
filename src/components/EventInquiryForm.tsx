@@ -87,11 +87,11 @@ Looking forward to hearing from you!
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 max-w-xl mx-auto">
+    <form onSubmit={handleSubmit} className="space-y-8 max-w-xl">
       {/* Required Fields */}
       <div>
-        <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">
-          Full Name <span className="text-red-500">*</span>
+        <label htmlFor="fullName" className="block text-sm text-gray-400 mb-2">
+          Full Name <span className="text-gray-300">*</span>
         </label>
         <input
           type="text"
@@ -100,13 +100,13 @@ Looking forward to hearing from you!
           required
           value={formData.fullName}
           onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition"
+          className="w-full px-0 py-3 border-0 border-b border-gray-200 focus:border-gray-900 focus:ring-0 outline-none transition-colors bg-transparent"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-          Email <span className="text-red-500">*</span>
+        <label htmlFor="email" className="block text-sm text-gray-400 mb-2">
+          Email <span className="text-gray-300">*</span>
         </label>
         <input
           type="email"
@@ -115,13 +115,13 @@ Looking forward to hearing from you!
           required
           value={formData.email}
           onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition"
+          className="w-full px-0 py-3 border-0 border-b border-gray-200 focus:border-gray-900 focus:ring-0 outline-none transition-colors bg-transparent"
         />
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-          Message <span className="text-red-500">*</span>
+        <label htmlFor="message" className="block text-sm text-gray-400 mb-2">
+          Message <span className="text-gray-300">*</span>
         </label>
         <textarea
           id="message"
@@ -131,13 +131,13 @@ Looking forward to hearing from you!
           value={formData.message}
           onChange={handleChange}
           placeholder="Tell me about your event..."
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition resize-none"
+          className="w-full px-0 py-3 border-0 border-b border-gray-200 focus:border-gray-900 focus:ring-0 outline-none transition-colors bg-transparent resize-none placeholder:text-gray-300"
         />
       </div>
 
       <div>
-        <label htmlFor="referralSource" className="block text-sm font-medium text-gray-700 mb-1">
-          How did you hear about me? <span className="text-red-500">*</span>
+        <label htmlFor="referralSource" className="block text-sm text-gray-400 mb-2">
+          How did you hear about me? <span className="text-gray-300">*</span>
         </label>
         <select
           id="referralSource"
@@ -145,7 +145,7 @@ Looking forward to hearing from you!
           required
           value={formData.referralSource}
           onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition bg-white"
+          className="w-full px-0 py-3 border-0 border-b border-gray-200 focus:border-gray-900 focus:ring-0 outline-none transition-colors bg-transparent"
         >
           <option value="">Select an option</option>
           {referralOptions.map((option) => (
@@ -157,12 +157,12 @@ Looking forward to hearing from you!
       </div>
 
       {/* Optional Fields */}
-      <div className="pt-4 border-t border-gray-200">
-        <p className="text-sm text-gray-500 mb-4">Optional event details</p>
+      <div className="pt-8 border-t border-gray-100">
+        <p className="text-sm text-gray-400 uppercase tracking-widest mb-8">Optional details</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
-            <label htmlFor="eventDate" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="eventDate" className="block text-sm text-gray-400 mb-2">
               Event Date
             </label>
             <input
@@ -171,12 +171,12 @@ Looking forward to hearing from you!
               name="eventDate"
               value={formData.eventDate}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition"
+              className="w-full px-0 py-3 border-0 border-b border-gray-200 focus:border-gray-900 focus:ring-0 outline-none transition-colors bg-transparent"
             />
           </div>
 
           <div>
-            <label htmlFor="eventTime" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="eventTime" className="block text-sm text-gray-400 mb-2">
               Event Time
             </label>
             <input
@@ -185,12 +185,12 @@ Looking forward to hearing from you!
               name="eventTime"
               value={formData.eventTime}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition"
+              className="w-full px-0 py-3 border-0 border-b border-gray-200 focus:border-gray-900 focus:ring-0 outline-none transition-colors bg-transparent"
             />
           </div>
 
           <div>
-            <label htmlFor="guestCount" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="guestCount" className="block text-sm text-gray-400 mb-2">
               Estimated Guest Count
             </label>
             <input
@@ -200,12 +200,12 @@ Looking forward to hearing from you!
               value={formData.guestCount}
               onChange={handleChange}
               placeholder="e.g., 100"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition"
+              className="w-full px-0 py-3 border-0 border-b border-gray-200 focus:border-gray-900 focus:ring-0 outline-none transition-colors bg-transparent placeholder:text-gray-300"
             />
           </div>
 
           <div>
-            <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="budget" className="block text-sm text-gray-400 mb-2">
               Budget Range
             </label>
             <input
@@ -215,13 +215,13 @@ Looking forward to hearing from you!
               value={formData.budget}
               onChange={handleChange}
               placeholder="e.g., $500-$1000"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition"
+              className="w-full px-0 py-3 border-0 border-b border-gray-200 focus:border-gray-900 focus:ring-0 outline-none transition-colors bg-transparent placeholder:text-gray-300"
             />
           </div>
         </div>
 
-        <div className="mt-4">
-          <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-1">
+        <div className="mt-8">
+          <label htmlFor="location" className="block text-sm text-gray-400 mb-2">
             Event Location
           </label>
           <input
@@ -231,19 +231,19 @@ Looking forward to hearing from you!
             value={formData.location}
             onChange={handleChange}
             placeholder="City, State or Venue Name"
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition"
+            className="w-full px-0 py-3 border-0 border-b border-gray-200 focus:border-gray-900 focus:ring-0 outline-none transition-colors bg-transparent placeholder:text-gray-300"
           />
         </div>
       </div>
 
       <button
         type="submit"
-        className="w-full bg-gray-900 text-white py-3 px-6 rounded-lg font-medium hover:bg-gray-700 transition-colors"
+        className="inline-block text-sm tracking-wide border-b border-gray-900 pb-1 hover:border-gray-400 hover:text-gray-600 transition-all duration-300 mt-8"
       >
         Send Inquiry
       </button>
 
-      <p className="text-sm text-gray-500 text-center">
+      <p className="text-xs text-gray-400">
         This will open your email client with the form details pre-filled.
       </p>
     </form>

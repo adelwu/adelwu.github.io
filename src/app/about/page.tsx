@@ -7,70 +7,75 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">
-        About Me
-      </h1>
+    <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-16">
+      {/* Hero Section */}
+      <section className="py-24 md:py-32">
+        <h1 className="text-3xl md:text-4xl font-normal leading-relaxed mb-8">
+          About <span className="gradient-text">me</span>
+        </h1>
+        <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl">
+          {/* TODO: Update with your bio */}
+          I&apos;m a live event portrait artist based in San Francisco.
+          I capture the essence of your special moments through live portraiture.
+        </p>
+      </section>
 
-      <div className="max-w-3xl mx-auto">
-        {/* Bio Section */}
-        <section className="mb-12">
-          <div className="prose prose-lg text-gray-600 space-y-6">
-            <p>
-              Welcome! I&apos;m Adel Wu, a live event portrait artist based in the heart of creativity.
-              I specialize in capturing the essence of your special moments through live portrait artistry.
-            </p>
-            <p>
-              My journey as an artist began years ago, and it has led me to discover my true passion:
-              bringing joy to people at their most memorable events. There&apos;s something magical about
-              creating art in real-time, watching guests&apos; faces light up as their portraits come to life.
-            </p>
-            <p>
-              I&apos;ve had the privilege of working at hundreds of weddings, corporate galas, private
-              parties, and special celebrations. Each event is unique, and I bring energy and artistry
-              to every portrait I create.
-            </p>
-          </div>
-        </section>
+      {/* Story Section */}
+      <section className="py-16 md:py-24 border-t border-gray-100">
+        <p className="text-sm text-gray-400 uppercase tracking-widest mb-8">
+          My story
+        </p>
+        <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
+          {/* TODO: Update with your story */}
+          <p>
+            My journey as an artist began years ago, and it has led me to discover my true passion:
+            bringing joy to people at their most memorable events.
+          </p>
+          <p>
+            There&apos;s something magical about creating art in real-time, watching guests&apos; faces
+            light up as their portraits come to life.
+          </p>
+          <p>
+            I&apos;ve had the privilege of working at hundreds of weddings, corporate galas, private
+            parties, and special celebrations.
+          </p>
+        </div>
+      </section>
 
-        {/* My Approach Section */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">My Approach</h2>
-          <div className="space-y-4 text-gray-600">
-            <p>
-              I believe every portrait should tell a story. When I work at your event, I don&apos;t
-              just draw faces &mdash; I capture personalities, emotions, and the spirit of the moment.
-            </p>
-            <p>
-              My setup is designed to be unobtrusive yet engaging. Guests can watch as their
-              portraits take shape, making it an interactive and memorable experience for everyone.
-            </p>
-          </div>
-        </section>
+      {/* Approach Section */}
+      <section className="py-16 md:py-24 border-t border-gray-100">
+        <p className="text-sm text-gray-400 uppercase tracking-widest mb-8">
+          My approach
+        </p>
+        <div className="grid md:grid-cols-2 gap-12">
+          {[
+            {
+              title: "Storytelling",
+              description: "Every portrait should tell a story. I don't just draw faces — I capture personalities, emotions, and the spirit of the moment.",
+            },
+            {
+              title: "Engaging",
+              description: "Guests can watch as their portraits take shape, making it an interactive and memorable experience for everyone.",
+            },
+            {
+              title: "Unobtrusive",
+              description: "My setup is designed to blend seamlessly into your event while still being a focal point of entertainment.",
+            },
+            {
+              title: "Flexible",
+              description: "Every event is unique. I adapt to your timeline, space, and vision to deliver the best experience.",
+            },
+          ].map((item) => (
+            <div key={item.title} className="group">
+              <h3 className="text-xl font-normal mb-3">{item.title}</h3>
+              <p className="text-gray-500 leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-        {/* What to Expect Section */}
-        <section>
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">What to Expect</h2>
-          <ul className="space-y-3 text-gray-600">
-            <li className="flex items-start">
-              <span className="text-gray-400 mr-3">&#8226;</span>
-              <span>Professional, friendly service from start to finish</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-gray-400 mr-3">&#8226;</span>
-              <span>High-quality portraits your guests will treasure</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-gray-400 mr-3">&#8226;</span>
-              <span>An engaging experience that adds entertainment value to your event</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-gray-400 mr-3">&#8226;</span>
-              <span>Flexible scheduling to accommodate your event timeline</span>
-            </li>
-          </ul>
-        </section>
-      </div>
     </div>
   );
 }

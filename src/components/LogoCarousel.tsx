@@ -14,7 +14,7 @@ export default function LogoCarousel({ logos }: LogoCarouselProps) {
   const duplicatedLogos = [...logos, ...logos];
 
   return (
-    <div className="w-full overflow-hidden bg-gray-50 py-8">
+    <div className="w-full overflow-hidden py-8">
       <div className="relative">
         <div className="flex animate-scroll">
           {duplicatedLogos.map((logo, index) => (
@@ -26,7 +26,7 @@ export default function LogoCarousel({ logos }: LogoCarouselProps) {
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="max-w-full max-h-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                className="max-w-full max-h-full object-contain opacity-40 hover:opacity-100 transition-opacity duration-300"
               />
             </div>
           ))}
