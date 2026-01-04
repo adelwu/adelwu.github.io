@@ -15,13 +15,13 @@ const roles = [
 const projects = [
   {
     title: "Color Through SF",
-    subtitle: "A self-published SF themed coloring book documenting my favorite local spots and businesses. Promoted through Tiktok content and now sold in 7+ stores throughout the city!",
+    subtitle: "A self-published and illustrated SF themed coloring book promoted through Tiktok content, now sold in 7+ stores throughout the city.",
     href: "https://www.etsy.com/listing/1853129987/color-through-san-francisco-cute-food",
     imageSrc: "/images/projects/color_through_sf.png",
   },
   {
     title: "Piggie Palz NFTs",
-    subtitle: "A hand-drawn NFT collection that hit over 500+ ETH trading volume.",
+    subtitle: "A hand-drawn NFT collection that hit over 500+ ETH trading volume. I was the sole artist on the project.",
     href: "https://opensea.io/collection/piggiepalz",
     imageSrc: "/images/projects/piggy_palz.png",
   },
@@ -86,14 +86,27 @@ export default function Home() {
           </span>
         </h1>
         <p className="text-lg md:text-xl text-text-secondary leading-relaxed mt-6">
-          currently doing growth @ Reducto and a live event artist. welcome to my portfolio!
+          currently doing growth @{" "}
+          <a
+            href="https://reducto.ai/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-text-primary"
+          >
+            <span className="underline">Reducto</span> ↗
+          </a>{" "}
+          and{" "}
+          <a href="/art" className="text-text-primary">
+            <span className="underline">live event art</span>
+          </a>
+          . previously swe @ Meta.
         </p>
       </section>
 
       {/* Projects Section */}
       <section className="py-16 md:py-24">
         <p className="text-sm text-text-tertiary uppercase tracking-widest mb-12">
-          Projects
+          Select Projects
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project) => (

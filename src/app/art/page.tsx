@@ -59,7 +59,7 @@ export default function ArtPage() {
                 Live guest portraits
               </h1>
               <p className="text-lg md:text-xl text-text-secondary leading-relaxed max-w-prose mb-8">
-                Give your guests a personalized, memorable, and hand-drawn souvenir they can have forever! I create live portraits at your event.
+                Give your guests a personalized, memorable, and hand-drawn souvenir they can have forever!
               </p>
               <Link
                 href="#contact"
@@ -89,7 +89,7 @@ export default function ArtPage() {
             }
             title="Quick Sketch"
             description="Fast line art portraits perfect for high-volume events and parties. Guests get a fun, personalized keepsake in a couple minutes."
-            duration="~60 seconds"
+            duration="~60 seconds each"
           />
           <ServiceCard
             icon={
@@ -99,7 +99,7 @@ export default function ArtPage() {
             }
             title="Watercolor Portrait"
             description="Stylized watercolor paintings for intimate gatherings and special events. Guests pick up their pieces at the end of the night!"
-            duration="~10 minutes"
+            duration="~10 minutes each"
           />
         </div>
 
