@@ -1,28 +1,45 @@
+import Image from "next/image";
 import Widget from "./Widget";
 
 interface MapWidgetProps {
-  query?: string;
   className?: string;
 }
 
-const DEFAULT_QUERY = "San Francisco";
+const MAPS_URL = "https://maps.app.goo.gl/AHuaswSZCoUhsUWUA";
 
-export default function MapWidget({
-  query = DEFAULT_QUERY,
-  className = "",
-}: MapWidgetProps) {
-  const mapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(query)}&output=embed`;
-
+export default function MapWidget({ className = "" }: MapWidgetProps) {
   return (
     <Widget className={className}>
-      <iframe
-        src={mapUrl}
-        width="100%"
-        height="100%"
-        style={{ border: 0 }}
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-      />
+      <a
+        href={MAPS_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block relative w-full h-full group"
+      >
+        <Image
+          src="/images/about/sf_favorites_map.png"
+          alt="My favorite places in San Francisco"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors" />
+        <div className="absolute top-6 right-6 flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-pill text-sm text-text-primary shadow-sm">
+          See my favorite spots
+          <svg
+            className="w-4 h-4 text-text-muted group-hover:text-text-secondary transition-colors"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={1.5}
+              d="M7 17L17 7M17 7H7M17 7V17"
+            />
+          </svg>
+        </div>
+      </a>
     </Widget>
   );
 }

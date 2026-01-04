@@ -4,6 +4,7 @@ import Widget from "@/components/widgets/Widget";
 import LogoCarousel from "@/components/LogoCarousel";
 import EventInquiryForm from "@/components/EventInquiryForm";
 import VideoCard from "@/components/VideoCard";
+import FAQ from "@/components/FAQ";
 
 export const metadata: Metadata = {
   title: "Work | Adel Wu",
@@ -98,6 +99,13 @@ export default function ArtPage() {
               Fill out the form below and I&apos;ll get back to you as soon as possible.
             </p>
             <EventInquiryForm />
+          </div>
+        </Widget>
+
+        {/* FAQ Widget */}
+        <Widget title="Frequently asked questions">
+          <div className="p-6 md:p-8">
+            <FAQ />
           </div>
         </Widget>
       </div>
