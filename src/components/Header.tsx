@@ -24,15 +24,15 @@ export default function Header() {
     <header className="py-6">
       <nav className="flex justify-center">
         {/* Desktop Navigation - Pill-shaped container */}
-        <div className="hidden md:flex items-center bg-gray-100 rounded-full p-1.5">
+        <div className="hidden md:flex items-center bg-bg-muted rounded-pill p-1.5">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`px-6 py-2.5 rounded-full text-sm transition-all duration-200 ${
+              className={`px-6 py-2.5 rounded-pill text-sm transition-all duration-fast ${
                 isActive(link.href)
-                  ? "bg-white text-gray-900 shadow-sm"
-                  : "text-gray-500 hover:text-gray-900"
+                  ? "bg-white text-text-primary shadow-sm"
+                  : "text-text-secondary hover:text-text-primary"
               }`}
             >
               {link.label}
@@ -42,7 +42,7 @@ export default function Header() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 bg-gray-100 rounded-full"
+          className="md:hidden p-2 bg-bg-muted rounded-pill"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -59,15 +59,15 @@ export default function Header() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden mt-4 flex justify-center">
-          <div className="bg-gray-100 rounded-2xl p-2">
+          <div className="bg-bg-muted rounded-2xl p-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`block px-6 py-2.5 rounded-full text-sm transition-all duration-200 ${
+                className={`block px-6 py-2.5 rounded-pill text-sm transition-all duration-fast ${
                   isActive(link.href)
-                    ? "bg-white text-gray-900 shadow-sm"
-                    : "text-gray-500 hover:text-gray-900"
+                    ? "bg-white text-text-primary shadow-sm"
+                    : "text-text-secondary hover:text-text-primary"
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >

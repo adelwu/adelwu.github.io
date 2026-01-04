@@ -58,7 +58,7 @@ const socialLinks = [
 export default function Footer() {
   return (
     <footer className="py-12">
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-content mx-auto px-6">
         {/* Social Links - Icons */}
         <div className="flex justify-center space-x-6 mb-6">
           {socialLinks.map((social) => {
@@ -70,7 +70,7 @@ export default function Footer() {
                 href={href}
                 target={isExternal ? "_blank" : undefined}
                 rel={isExternal ? "noopener noreferrer" : undefined}
-                className="text-gray-400 hover:text-gray-600 transition-colors"
+                className="text-text-tertiary hover:text-text-secondary transition-colors"
                 aria-label={social.label}
               >
                 {social.icon}
@@ -80,7 +80,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <p className="text-center text-gray-400 text-sm">
+        <p className="text-center text-text-tertiary text-sm">
           {new Date().getFullYear()} Adel Wu
         </p>
       </div>

@@ -19,20 +19,20 @@ const contactLinks = [
 
 export default function ContactPage() {
   return (
-    <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-16">
+    <div className="max-w-content mx-auto px-6 md:px-12 lg:px-16">
       {/* Hero Section */}
       <section className="py-24 md:py-32">
         <h1 className="text-3xl md:text-4xl font-normal leading-relaxed mb-8">
           Get in <span className="gradient-text">touch</span>
         </h1>
-        <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl">
+        <p className="text-lg md:text-xl text-text-secondary leading-relaxed max-w-prose">
           Have a question or want to book me for your event? Reach out through any of the channels below.
         </p>
       </section>
 
       {/* Contact Links */}
-      <section className="py-16 md:py-24 border-t border-gray-100">
-        <p className="text-sm text-gray-400 uppercase tracking-widest mb-12">
+      <section className="py-16 md:py-24 border-t border-border-default">
+        <p className="text-sm text-text-tertiary uppercase tracking-widest mb-12">
           Connect
         </p>
         <div className="space-y-8">
@@ -45,16 +45,16 @@ export default function ContactPage() {
                 href={href}
                 target={isExternal ? "_blank" : undefined}
                 rel={isExternal ? "noopener noreferrer" : undefined}
-                className="group flex items-center justify-between py-4 border-b border-gray-100 hover:border-gray-300 transition-colors"
+                className="group flex items-center justify-between py-4 border-b border-border-default hover:border-border-active transition-colors"
               >
                 <div>
-                  <p className="text-sm text-gray-400 mb-1">{link.name}</p>
-                  <p className="text-lg group-hover:text-gray-600 transition-colors">
+                  <p className="text-sm text-text-tertiary mb-1">{link.name}</p>
+                  <p className="text-lg group-hover:text-text-secondary transition-colors">
                     {link.value}
                   </p>
                 </div>
                 <svg
-                  className="w-4 h-4 text-gray-300 group-hover:text-gray-600 transition-colors"
+                  className="w-4 h-4 text-text-muted group-hover:text-text-secondary transition-colors"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -68,13 +68,13 @@ export default function ContactPage() {
       </section>
 
       {/* CTA to Art Page */}
-      <section className="py-16 md:py-24 border-t border-gray-100 text-center">
-        <p className="text-lg text-gray-500 mb-8">
+      <section className="py-16 md:py-24 border-t border-border-default text-center">
+        <p className="text-lg text-text-secondary mb-8">
           Ready to book me for your event?
         </p>
         <Link
           href="/art"
-          className="inline-block text-sm tracking-wide border-b border-gray-900 pb-1 hover:border-gray-400 hover:text-gray-600 transition-all duration-300"
+          className="inline-block text-sm tracking-wide border-b border-border-strong pb-1 hover:border-border-active hover:text-text-secondary transition-all duration-DEFAULT"
         >
           Fill out inquiry form
         </Link>

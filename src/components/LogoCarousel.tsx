@@ -26,7 +26,7 @@ export default function LogoCarousel({ logos }: LogoCarouselProps) {
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="max-w-full max-h-full object-contain opacity-40 hover:opacity-100 transition-opacity duration-300"
+                className="max-w-full max-h-full object-contain opacity-40 hover:opacity-100 transition-opacity duration-DEFAULT"
               />
             </div>
           ))}
