@@ -58,8 +58,8 @@ const socialLinks = [
 export default function Footer() {
   return (
     <footer className="py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Social Links */}
+      <div className="max-w-4xl mx-auto px-6">
+        {/* Social Links - Icons */}
         <div className="flex justify-center space-x-6 mb-6">
           {socialLinks.map((social) => {
             const href = social.href === "email" ? getEmailHref() : social.href;
@@ -81,7 +81,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <p className="text-center text-gray-400 text-sm">
-          &copy; {new Date().getFullYear()} Adel Wu. All rights reserved.
+          {new Date().getFullYear()} Adel Wu
         </p>
       </div>
     </footer>

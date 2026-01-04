@@ -7,7 +7,7 @@ import { useState } from "react";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/art", label: "Art" },
+  { href: "/art", label: "Work" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -24,12 +24,12 @@ export default function Header() {
     <header className="py-6">
       <nav className="flex justify-center">
         {/* Desktop Navigation - Pill-shaped container */}
-        <div className="hidden md:flex items-center bg-gray-100 rounded-full p-1.5 shadow-sm">
+        <div className="hidden md:flex items-center bg-gray-100 rounded-full p-1.5">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 ${
+              className={`px-6 py-2.5 rounded-full text-sm transition-all duration-200 ${
                 isActive(link.href)
                   ? "bg-white text-gray-900 shadow-sm"
                   : "text-gray-500 hover:text-gray-900"
@@ -59,12 +59,12 @@ export default function Header() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden mt-4 flex justify-center">
-          <div className="bg-gray-100 rounded-2xl p-2 shadow-sm">
+          <div className="bg-gray-100 rounded-2xl p-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`block px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 ${
+                className={`block px-6 py-2.5 rounded-full text-sm transition-all duration-200 ${
                   isActive(link.href)
                     ? "bg-white text-gray-900 shadow-sm"
                     : "text-gray-500 hover:text-gray-900"
