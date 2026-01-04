@@ -53,7 +53,7 @@ function AccordionItem({
     <div className={!isLast ? "border-b border-border-default" : ""}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between py-4 text-left hover:bg-bg-subtle transition-colors -mx-2 px-2 rounded"
+        className="w-full flex items-center justify-between py-4 text-left hover:bg-bg-subtle transition-colors rounded"
       >
         <span className="text-text-primary font-medium">{item.question}</span>
         <svg

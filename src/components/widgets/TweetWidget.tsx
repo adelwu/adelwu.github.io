@@ -26,16 +26,18 @@ export default function TweetWidget({
         href={linkUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="block p-6 group h-full flex flex-col"
+        className="block p-6 group h-full flex flex-col relative"
       >
-        <div className="flex items-center justify-between mb-4">
-          <svg
-            className="w-5 h-5 text-text-tertiary"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-          </svg>
+        {/* App icon overlay */}
+        <div className="absolute top-4 left-4 w-8 h-8 rounded-lg overflow-hidden shadow-sm">
+          <Image
+            src="/images/icons/twitter.svg"
+            alt="Twitter"
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div className="flex items-center justify-end mb-4">
           <svg
             className="w-4 h-4 text-text-muted group-hover:text-text-secondary transition-colors"
             fill="none"
@@ -52,10 +54,7 @@ export default function TweetWidget({
         </div>
 
         <div className="relative flex-1">
-          <span className="absolute -top-4 -left-2 text-6xl text-border-default font-serif">
-            &ldquo;
-          </span>
-          <p className="text-lg text-text-secondary leading-relaxed pl-4">
+          <p className="text-lg text-text-secondary leading-relaxed">
             {quote}
           </p>
         </div>

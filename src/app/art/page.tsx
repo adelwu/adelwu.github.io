@@ -5,6 +5,7 @@ import LogoCarousel from "@/components/LogoCarousel";
 import EventInquiryForm from "@/components/EventInquiryForm";
 import VideoCard from "@/components/VideoCard";
 import FAQ from "@/components/FAQ";
+import PhotoCarousel from "@/components/widgets/PhotoCarousel";
 
 export const metadata: Metadata = {
   title: "Work | Adel Wu",
@@ -32,27 +33,45 @@ const portfolioItems = [
   { id: 6, videoSrc: "/videos/event-6.mp4" },
 ];
 
+const heroPhotos: { src: string; alt: string }[] = [
+  { src: "/images/art/art-1.jpg", alt: "Art 1" },
+  { src: "/images/art/art-2.JPG", alt: "Art 2" },
+  { src: "/images/art/art-3.JPG", alt: "Art 3" },
+  { src: "/images/art/art-4.jpg", alt: "Art 4" },
+  { src: "/images/art/art-5.jpg", alt: "Art 5" },
+  { src: "/images/art/art-6.jpg", alt: "Art 6" },
+  { src: "/images/art/art-7.JPG", alt: "Art 7" },
+  { src: "/images/art/art-8.JPG", alt: "Art 8" },
+  { src: "/images/art/art-9.JPG", alt: "Art 9" },
+  { src: "/images/art/art-10.jpg", alt: "Art 10" },
+];
+
 export default function ArtPage() {
   return (
     <div className="max-w-content-wide mx-auto px-6 md:px-12 lg:px-16 py-12 md:py-16">
       <div className="space-y-4">
-        {/* Hero Widget */}
-        <Widget>
-          <div className="p-8 md:p-12">
-            <h1 className="text-3xl md:text-4xl font-normal leading-relaxed mb-4">
-              Live guest portraits
-            </h1>
-            <p className="text-lg md:text-xl text-text-secondary leading-relaxed max-w-prose mb-8">
-              Give your guests a personalized, memorable, and hand-drawn souvenir they can have forever! I do either 60 second line art portraits or 5 minute watercolor paintings live, at your event.
-            </p>
-            <Link
-              href="#contact"
-              className="inline-block px-6 py-3 bg-text-primary text-bg-page rounded-pill text-sm font-medium hover:bg-text-secondary transition-colors"
-            >
-              Work with me!
-            </Link>
+        {/* Hero Section */}
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_300px] gap-4">
+          <Widget>
+            <div className="p-8 md:p-12 h-full flex flex-col justify-center">
+              <h1 className="text-3xl md:text-4xl font-normal leading-relaxed mb-4">
+                Live guest portraits
+              </h1>
+              <p className="text-lg md:text-xl text-text-secondary leading-relaxed max-w-prose mb-8">
+                Give your guests a personalized, memorable, and hand-drawn souvenir they can have forever! I do either 60 second line art portraits or 5 minute watercolor paintings live, at your event.
+              </p>
+              <Link
+                href="#contact"
+                className="inline-block px-6 py-3 bg-text-primary text-bg-page rounded-pill text-sm font-medium hover:bg-text-secondary transition-colors w-fit"
+              >
+                Work with me!
+              </Link>
+            </div>
+          </Widget>
+          <div className="aspect-square md:aspect-auto md:h-full">
+            <PhotoCarousel photos={heroPhotos} className="h-full" showIcon={false} />
           </div>
-        </Widget>
+        </div>
 
         {/* Logo Carousel Widget */}
         <Widget title="Who I've worked with">
