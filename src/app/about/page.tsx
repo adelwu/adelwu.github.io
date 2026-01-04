@@ -41,10 +41,10 @@ export default function AboutPage() {
           </div>
           {/* Row 2: Map spanning full width as rectangle */}
           <div className="col-span-2 aspect-[2/1]">
-            <MapWidget query="San Francisco" className="h-full" />
+            <MapWidget className="h-full" />
           </div>
           {/* Row 3: Music spanning full width */}
-          <div className="col-span-2 aspect-[3/1]">
+          <div className="col-span-2 h-[352px]">
             <MusicWidget className="h-full" />
           </div>
         </div>
