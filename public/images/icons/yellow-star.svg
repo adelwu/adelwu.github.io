@@ -1,0 +1,16 @@
+<svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="yellow-star_inner" data-figma-trr="r12u0.5-0f">
+<path d="M28.1262 0.184814L30.9147 28.1247H25.3376L28.1262 0.184814Z" fill="#FBE58B"/>
+</g>
+<use xlink:href="#yellow-star_inner" transform="translate(17.8304 -10.2944) rotate(30)"/>
+<use xlink:href="#yellow-star_inner" transform="translate(38.4192 -10.2944) rotate(60)"/>
+<use xlink:href="#yellow-star_inner" transform="translate(56.2496 1.88502e-06) rotate(90)"/>
+<use xlink:href="#yellow-star_inner" transform="translate(66.5439 17.8304) rotate(120)"/>
+<use xlink:href="#yellow-star_inner" transform="translate(66.5439 38.4192) rotate(150)"/>
+<use xlink:href="#yellow-star_inner" transform="translate(56.2496 56.2496) rotate(-180)"/>
+<use xlink:href="#yellow-star_inner" transform="translate(38.4192 66.5439) rotate(-150)"/>
+<use xlink:href="#yellow-star_inner" transform="translate(17.8304 66.5439) rotate(-120)"/>
+<use xlink:href="#yellow-star_inner" transform="translate(-9.91036e-07 56.2496) rotate(-90)"/>
+<use xlink:href="#yellow-star_inner" transform="translate(-10.2944 38.4192) rotate(-60)"/>
+<use xlink:href="#yellow-star_inner" transform="translate(-10.2944 17.8304) rotate(-30)"/>
+</svg>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Widget from "@/components/widgets/Widget";
+import ServiceCard from "@/components/widgets/ServiceCard";
 import LogoCarousel from "@/components/LogoCarousel";
 import EventInquiryForm from "@/components/EventInquiryForm";
 import VideoCard from "@/components/VideoCard";
@@ -58,7 +59,7 @@ export default function ArtPage() {
                 Live guest portraits
               </h1>
               <p className="text-lg md:text-xl text-text-secondary leading-relaxed max-w-prose mb-8">
-                Give your guests a personalized, memorable, and hand-drawn souvenir they can have forever! I do either 60 second line art portraits or 5 minute watercolor paintings live, at your event.
+                Give your guests a personalized, memorable, and hand-drawn souvenir they can have forever! I create live portraits at your event.
               </p>
               <Link
                 href="#contact"
@@ -77,6 +78,30 @@ export default function ArtPage() {
         <Widget title="Who I've worked with">
           <LogoCarousel logos={clientLogos} />
         </Widget>
+
+        {/* Service Options */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <ServiceCard
+            icon={
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            }
+            title="Quick Sketch"
+            description="Fast line art portraits perfect for high-volume events and parties. Guests get a fun, personalized keepsake in a couple minutes."
+            duration="~60 seconds"
+          />
+          <ServiceCard
+            icon={
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+              </svg>
+            }
+            title="Watercolor Portrait"
+            description="Stylized watercolor paintings for intimate gatherings and special events. Guests pick up their pieces at the end of the night!"
+            duration="~10 minutes"
+          />
+        </div>
 
         {/* Portfolio Gallery Widget */}
         <Widget title="Previous events">
