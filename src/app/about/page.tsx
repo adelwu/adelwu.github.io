@@ -7,13 +7,13 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-16">
+    <div className="max-w-content mx-auto px-6 md:px-12 lg:px-16">
       {/* Hero Section */}
       <section className="py-24 md:py-32">
         <h1 className="text-3xl md:text-4xl font-normal leading-relaxed mb-8">
           About <span className="gradient-text">me</span>
         </h1>
-        <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl">
+        <p className="text-lg md:text-xl text-text-secondary leading-relaxed max-w-prose">
           {/* TODO: Update with your bio */}
           I&apos;m a live event portrait artist based in San Francisco.
           I capture the essence of your special moments through live portraiture.
@@ -21,11 +21,11 @@ export default function AboutPage() {
       </section>
 
       {/* Story Section */}
-      <section className="py-16 md:py-24 border-t border-gray-100">
-        <p className="text-sm text-gray-400 uppercase tracking-widest mb-8">
+      <section className="py-16 md:py-24 border-t border-border-default">
+        <p className="text-sm text-text-tertiary uppercase tracking-widest mb-8">
           My story
         </p>
-        <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
+        <div className="space-y-6 text-lg text-text-secondary leading-relaxed">
           {/* TODO: Update with your story */}
           <p>
             My journey as an artist began years ago, and it has led me to discover my true passion:
@@ -43,8 +43,8 @@ export default function AboutPage() {
       </section>
 
       {/* Approach Section */}
-      <section className="py-16 md:py-24 border-t border-gray-100">
-        <p className="text-sm text-gray-400 uppercase tracking-widest mb-8">
+      <section className="py-16 md:py-24 border-t border-border-default">
+        <p className="text-sm text-text-tertiary uppercase tracking-widest mb-8">
           My approach
         </p>
         <div className="grid md:grid-cols-2 gap-12">
@@ -68,7 +68,7 @@ export default function AboutPage() {
           ].map((item) => (
             <div key={item.title} className="group">
               <h3 className="text-xl font-normal mb-3">{item.title}</h3>
-              <p className="text-gray-500 leading-relaxed">
+              <p className="text-text-secondary leading-relaxed">
                 {item.description}
               </p>
             </div>

@@ -1,32 +1,23 @@
 @import "tailwindcss";
+@config "../../tailwind.config.ts";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-
-  /* Gradient animation colors (marco.fyi style) */
+  /* Gradient animation colors (CSS-only feature) */
   --gradient-red: #ff6b6b;
   --gradient-orange: #ffa500;
   --gradient-green: #4ecdc4;
   --gradient-blue: #45b7d1;
   --gradient-purple: #a855f7;
-
-  /* Animation timing */
-  --transition-fast: 150ms;
-  --transition-medium: 300ms;
-  --transition-slow: 500ms;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-lato);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: 'Lato', sans-serif;
+  background: theme("colors.bg-page");
+  color: theme("colors.text-primary");
+  font-family: theme("fontFamily.sans");
 }
 
 /* Gradient text animation keyframes */
@@ -67,7 +58,7 @@ body {
   bottom: -2px;
   left: 0;
   background-color: currentColor;
-  transition: width var(--transition-medium) ease;
+  transition: width theme("transitionDuration.DEFAULT") ease;
 }
 .link-underline:hover::after {
   width: 100%;
