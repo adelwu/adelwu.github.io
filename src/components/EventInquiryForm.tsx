@@ -87,80 +87,83 @@ Looking forward to hearing from you!
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-8 max-w-form">
-      {/* Required Fields */}
-      <div>
-        <label htmlFor="fullName" className="block text-sm text-text-tertiary mb-2">
-          Full Name <span className="text-text-muted">*</span>
-        </label>
-        <input
-          type="text"
-          id="fullName"
-          name="fullName"
-          required
-          value={formData.fullName}
-          onChange={handleChange}
-          className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent"
-        />
-      </div>
+    <form onSubmit={handleSubmit}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        {/* Left Column - Required Fields */}
+        <div className="space-y-8">
+          <div>
+            <label htmlFor="fullName" className="block text-sm text-text-tertiary mb-2">
+              Full Name <span className="text-text-muted">*</span>
+            </label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              required
+              value={formData.fullName}
+              onChange={handleChange}
+              className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent"
+            />
+          </div>
 
-      <div>
-        <label htmlFor="email" className="block text-sm text-text-tertiary mb-2">
-          Email <span className="text-text-muted">*</span>
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          value={formData.email}
-          onChange={handleChange}
-          className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent"
-        />
-      </div>
+          <div>
+            <label htmlFor="email" className="block text-sm text-text-tertiary mb-2">
+              Email <span className="text-text-muted">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent"
+            />
+          </div>
 
-      <div>
-        <label htmlFor="message" className="block text-sm text-text-tertiary mb-2">
-          Message <span className="text-text-muted">*</span>
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          required
-          rows={4}
-          value={formData.message}
-          onChange={handleChange}
-          placeholder="Tell me about your event..."
-          className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent resize-none placeholder:text-text-muted"
-        />
-      </div>
+          <div>
+            <label htmlFor="message" className="block text-sm text-text-tertiary mb-2">
+              Message <span className="text-text-muted">*</span>
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows={4}
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Tell me about your event..."
+              className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent resize-none placeholder:text-text-muted"
+            />
+          </div>
 
-      <div>
-        <label htmlFor="referralSource" className="block text-sm text-text-tertiary mb-2">
-          How did you hear about me? <span className="text-text-muted">*</span>
-        </label>
-        <select
-          id="referralSource"
-          name="referralSource"
-          required
-          value={formData.referralSource}
-          onChange={handleChange}
-          className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent"
-        >
-          <option value="">Select an option</option>
-          {referralOptions.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
-      </div>
+          <div>
+            <label htmlFor="referralSource" className="block text-sm text-text-tertiary mb-2">
+              How did you hear about me? <span className="text-text-muted">*</span>
+            </label>
+            <select
+              id="referralSource"
+              name="referralSource"
+              required
+              value={formData.referralSource}
+              onChange={handleChange}
+              className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent"
+            >
+              <option value="">Select an option</option>
+              {referralOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
 
-      {/* Optional Fields */}
-      <div className="pt-8 border-t border-border-default">
-        <p className="text-sm text-text-tertiary uppercase tracking-widest mb-8">Optional details</p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Right Column - Optional Fields */}
+        <div className="space-y-8 flex flex-col">
+          <p className="text-sm text-text-tertiary uppercase tracking-widest">Optional details</p>
+
           <div>
             <label htmlFor="eventDate" className="block text-sm text-text-tertiary mb-2">
               Event Date
@@ -190,80 +193,84 @@ Looking forward to hearing from you!
           </div>
 
           <div>
-            <label htmlFor="guestCount" className="block text-sm text-text-tertiary mb-2">
-              Estimated Guest Count
-            </label>
-            <input
-              type="number"
-              id="guestCount"
-              name="guestCount"
-              value={formData.guestCount}
-              onChange={handleChange}
-              placeholder="e.g., 100"
-              className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent placeholder:text-text-muted"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="budget" className="block text-sm text-text-tertiary mb-2 flex items-center gap-1.5">
-              Budget Range
-              <span className="relative group">
-                <svg
-                  className="w-4 h-4 text-text-muted cursor-help"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-3 py-2 bg-text-primary text-bg-page text-xs rounded-lg whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                  Depending on the type of event, I can be flexible with budget. I also accept optional tips!
-                </span>
-              </span>
+            <label htmlFor="location" className="block text-sm text-text-tertiary mb-2">
+              Event Location
             </label>
             <input
               type="text"
-              id="budget"
-              name="budget"
-              value={formData.budget}
+              id="location"
+              name="location"
+              value={formData.location}
               onChange={handleChange}
-              placeholder="e.g., $1k-2k"
+              placeholder="City, State or Venue Name"
               className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent placeholder:text-text-muted"
             />
           </div>
-        </div>
 
-        <div className="mt-8">
-          <label htmlFor="location" className="block text-sm text-text-tertiary mb-2">
-            Event Location
-          </label>
-          <input
-            type="text"
-            id="location"
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-            placeholder="City, State or Venue Name"
-            className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent placeholder:text-text-muted"
-          />
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="guestCount" className="block text-sm text-text-tertiary mb-2">
+                Guest Count
+              </label>
+              <input
+                type="number"
+                id="guestCount"
+                name="guestCount"
+                value={formData.guestCount}
+                onChange={handleChange}
+                placeholder="e.g., 100"
+                className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent placeholder:text-text-muted"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="budget" className="block text-sm text-text-tertiary mb-2 flex items-center gap-1.5">
+                Budget
+                <span className="relative group">
+                  <svg
+                    className="w-4 h-4 text-text-muted cursor-help"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-3 py-2 bg-text-primary text-bg-page text-xs rounded-lg whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                    Depending on the type of event, I can be flexible with budget. I also accept optional tips!
+                  </span>
+                </span>
+              </label>
+              <input
+                type="text"
+                id="budget"
+                name="budget"
+                value={formData.budget}
+                onChange={handleChange}
+                placeholder="e.g., $1k-2k"
+                className="w-full px-0 py-3 border-0 border-b border-border-hover focus:border-border-strong focus:ring-0 outline-none transition-colors bg-transparent placeholder:text-text-muted"
+              />
+            </div>
+          </div>
+
+          <div className="pt-4 mt-auto">
+            <button
+              type="submit"
+              className="inline-block px-6 py-3 bg-text-primary text-bg-page rounded-pill text-sm font-medium hover:bg-text-secondary transition-colors"
+            >
+              Send Inquiry
+            </button>
+
+            <p className="text-xs text-text-tertiary mt-4">
+              This will open your email client with the form details pre-filled.
+            </p>
+          </div>
         </div>
       </div>
-
-      <button
-        type="submit"
-        className="inline-block px-6 py-3 bg-text-primary text-bg-page rounded-pill text-sm font-medium hover:bg-text-secondary transition-colors mt-8"
-      >
-        Send Inquiry
-      </button>
-
-      <p className="text-xs text-text-tertiary">
-        This will open your email client with the form details pre-filled.
-      </p>
     </form>
   );
 }

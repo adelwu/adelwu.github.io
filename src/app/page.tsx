@@ -1,15 +1,15 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import ProjectWidget from "@/components/widgets/ProjectWidget";
 
 const roles = [
-  "illustrator",
-  "marketer",
-  "engineer",
-  "foodie",
-  "artist",
-  "developer advocate",
+  { text: "illustrator", icon: "/images/icons/coral-flower.svg", color: "#E07A5F" },
+  { text: "marketer", icon: "/images/icons/blue-star.svg", color: "#4361EE" },
+  { text: "engineer", icon: "/images/icons/green-leaves.svg", color: "#B5C99A" },
+  { text: "foodie", icon: "/images/icons/yellow-star.svg", color: "#F4D35E" },
+  { text: "creative", icon: "/images/icons/purple-clover.svg", color: "#9D8EC9" },
 ];
 
 const projects = [
@@ -47,7 +47,7 @@ export default function Home() {
     const interval = setInterval(() => {
       setIsAnimating(true);
       setTimeout(() => {
-        setRoleIndex((prev) => (prev + 1) % roles.length);
+        setRoleIndex((prev: number) => (prev + 1) % roles.length);
         setIsAnimating(false);
       }, 300);
     }, 2500);
@@ -59,15 +59,29 @@ export default function Home() {
     <div className="max-w-content mx-auto px-6 md:px-12 lg:px-16">
       {/* Hero Section */}
       <section className="py-16 md:py-20 lg:py-24">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal leading-relaxed flex flex-wrap items-baseline">
-          <span>hi, I&apos;m adel! I&apos;m a&nbsp;</span>
-          <span className="h-[1.5em] overflow-hidden text-text-secondary relative">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal leading-relaxed flex flex-wrap items-baseline gap-3">
+          <span>hi, I&apos;m adel! I&apos;m a</span>
+          <span className="inline-flex items-center gap-2 overflow-hidden">
             <span
-              className={`block transition-all duration-300 ${
-                isAnimating ? "translate-y-full opacity-0" : "translate-y-0 opacity-100"
+              className={`translate-y-1 transition-all duration-300 ${
+                isAnimating ? "translate-y-full opacity-0" : "opacity-100"
               }`}
             >
-              {roles[roleIndex]}
+              <Image
+                src={roles[roleIndex].icon}
+                alt=""
+                width={40}
+                height={40}
+                className="w-8 h-8 md:w-10 md:h-10"
+              />
+            </span>
+            <span
+              className={`transition-all duration-300 ${
+                isAnimating ? "translate-y-full opacity-0" : "translate-y-0 opacity-100"
+              }`}
+              style={{ color: roles[roleIndex].color }}
+            >
+              {roles[roleIndex].text}
             </span>
           </span>
         </h1>

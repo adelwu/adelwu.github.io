@@ -1,0 +1,8 @@
+<svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="green-leaves_inner" data-figma-trr="r4u1.5-0f">
+<path d="M37.4971 1.78931C38.0253 1.75334 38.4395 2.19538 38.4395 2.72485V15.7229C38.4395 15.8375 38.4191 15.9534 38.3789 16.0608C36.4837 21.1266 31.8191 22.8316 28.9795 23.1545C28.8077 23.174 28.6461 23.1428 28.5049 23.0745C28.3634 23.143 28.2014 23.1741 28.0293 23.1545C25.1896 22.8316 20.5251 21.1267 18.6299 16.0608C18.5897 15.9534 18.5703 15.8375 18.5703 15.7229V2.72485C18.5703 2.19538 18.9835 1.75334 19.5117 1.78931C22.3381 1.98175 26.7613 3.70553 28.5039 9.39966C30.2464 3.70553 34.6706 1.98192 37.4971 1.78931Z" fill="#C7D592"/>
+</g>
+<use xlink:href="#green-leaves_inner" transform="translate(57.0073 1.24593e-06) rotate(90)"/>
+<use xlink:href="#green-leaves_inner" transform="translate(57.0073 57.0073) rotate(-180)"/>
+<use xlink:href="#green-leaves_inner" transform="translate(-3.39902e-07 57.0073) rotate(-90)"/>
+</svg>
