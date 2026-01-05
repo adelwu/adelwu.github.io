@@ -111,3 +111,12 @@ body {
   transform: translateY(0);
   box-shadow: 0 4px 0 #b5614a;
 }
+
+/* Hide scrollbar utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

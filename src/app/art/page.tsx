@@ -103,13 +103,17 @@ export default function ArtPage() {
         {/* Portfolio Gallery Widget */}
         <Widget title="Previous events">
           <div className="p-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {portfolioItems.map((item) => (
-                <VideoCard
-                  key={item.id}
-                  videoSrc={item.videoSrc}
-                />
-              ))}
+            {/* Mobile: Horizontal carousel, Desktop: Grid */}
+            <div className="-mx-6 px-6 md:mx-0 md:px-0">
+              <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-hide md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                {portfolioItems.map((item) => (
+                  <div key={item.id} className="w-[70vw] md:w-auto flex-shrink-0 md:flex-shrink snap-center">
+                    <VideoCard
+                      videoSrc={item.videoSrc}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
             <a
               href="https://www.tiktok.com/@linebarf"

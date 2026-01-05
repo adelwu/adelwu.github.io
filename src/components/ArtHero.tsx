@@ -8,11 +8,11 @@ export default function ArtHero() {
 
   return (
     <div
-      className="p-8 md:p-12 h-full flex flex-col justify-center"
+      className="p-6 md:p-12 h-full flex flex-col justify-center"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-relaxed mb-4 inline-flex items-center gap-3 flex-wrap">
+      <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight md:leading-relaxed mb-2 md:mb-4 inline-flex items-center gap-3 flex-wrap">
         <span>live guest portraits</span>
         <svg
           width="40"
@@ -75,7 +75,7 @@ export default function ArtHero() {
           />
         </svg>
       </h1>
-      <p className="text-base md:text-lg text-text-secondary leading-relaxed max-w-prose mb-8">
+      <p className="text-base md:text-lg text-text-secondary leading-relaxed max-w-prose mb-4 md:mb-8">
         give your guests a personalized, memorable, and hand-drawn souvenir they can have forever!
       </p>
       <Link
