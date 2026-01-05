@@ -34,7 +34,7 @@ export default function ProjectWidget({
               alt={title}
               fill
               loading="lazy"
-              className="object-cover"
+              className="object-cover object-center"
             />
           ) : (
             <div className="absolute inset-0 flex items-center justify-center text-text-muted">

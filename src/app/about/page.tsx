@@ -42,9 +42,9 @@ export default function AboutPage() {
         <BioWidget />
 
         {/* Right side widgets */}
-        <div className="grid grid-cols-2 gap-4 content-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 content-start">
           {/* Row 1: Tweet + Photo */}
-          <div className="aspect-square">
+          <div className="aspect-[4/3] md:aspect-square">
             <TweetWidget
               quote="what were the most iconic & memorable videos launched this year?"
               date="Dec 2025"
@@ -54,15 +54,15 @@ export default function AboutPage() {
               className="h-full"
             />
           </div>
-          <div className="aspect-square">
+          <div className="aspect-[4/3] md:aspect-square">
             <PhotoCarousel photos={aboutPhotos} className="h-full" />
           </div>
           {/* Row 2: Map spanning full width as rectangle */}
-          <div className="col-span-2 aspect-[2/1]">
+          <div className="col-span-1 md:col-span-2 aspect-[2/1]">
             <MapWidget className="h-full" />
           </div>
           {/* Row 3: Music spanning full width */}
-          <div className="col-span-2 h-[352px]">
+          <div className="col-span-1 md:col-span-2 h-[352px]">
             <MusicWidget className="h-full" />
           </div>
         </div>

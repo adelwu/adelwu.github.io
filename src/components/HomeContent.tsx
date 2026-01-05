@@ -29,7 +29,7 @@ const projects = [
     title: "Writings",
     subtitle: "Thoughts on tech, art, and everything in between",
     href: "https://substack.com/@adelwu",
-    imageSrc: "/images/projects/writings.png",
+    imageSrc: "/images/projects/writings.jpg",
   },
   {
     title: "Made by Adel",
@@ -99,7 +99,8 @@ export default function HomeContent() {
             rel="noopener noreferrer"
             className="text-text-primary"
           >
-            <span className="underline">Reducto</span> ↗
+            <span className="underline">Reducto</span>{" "}
+            <svg className="inline w-3.5 h-3.5 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" /></svg>
           </a>{" "}
           and{" "}
           <a href="/art" className="text-text-primary">
