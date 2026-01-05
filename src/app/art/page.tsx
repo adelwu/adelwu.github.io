@@ -9,8 +9,18 @@ import FAQ from "@/components/FAQ";
 import PhotoCarousel from "@/components/widgets/PhotoCarousel";
 
 export const metadata: Metadata = {
-  title: "Work | Adel Wu",
-  description: "View my portfolio and book me for your next event.",
+  title: "Live Event Art",
+  description:
+    "Book Adel Wu for live guest portraits at your wedding, corporate event, or private party. Quick sketches and watercolor portraits available.",
+  openGraph: {
+    title: "Live Event Art by Adel Wu",
+    description:
+      "Book live guest portraits for weddings, corporate events, and private parties.",
+    images: ["/images/art/art-1.jpg"],
+  },
+  alternates: {
+    canonical: "https://adelwu.com/art",
+  },
 };
 
 const clientLogos = [

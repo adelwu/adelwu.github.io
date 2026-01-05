@@ -20,6 +20,7 @@ export default function MapWidget({ className = "" }: MapWidgetProps) {
           src="/images/about/sf_favorites_map.png"
           alt="My favorite places in San Francisco"
           fill
+          loading="lazy"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors" />
@@ -30,6 +31,7 @@ export default function MapWidget({ className = "" }: MapWidgetProps) {
             src="/images/icons/google-maps.svg"
             alt="Google Maps"
             fill
+            loading="lazy"
             className="object-cover"
           />
         </div>
