@@ -58,7 +58,7 @@ export default function ProjectWidget({
         {/* Content */}
         <div className="p-6 flex items-start justify-between gap-4">
           <div>
-            <h3 className="text-lg font-normal mb-1 group-hover:text-text-secondary transition-colors">
+            <h3 className="text-lg font-semibold mb-1 group-hover:text-text-secondary transition-colors">
               {title}
             </h3>
             <p className="text-sm text-text-secondary">{subtitle}</p>

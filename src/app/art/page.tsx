@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Widget from "@/components/widgets/Widget";
 import ServiceCard from "@/components/widgets/ServiceCard";
 import LogoCarousel from "@/components/LogoCarousel";
@@ -7,6 +6,7 @@ import EventInquiryForm from "@/components/EventInquiryForm";
 import VideoCard from "@/components/VideoCard";
 import FAQ from "@/components/FAQ";
 import PhotoCarousel from "@/components/widgets/PhotoCarousel";
+import ArtHero from "@/components/ArtHero";
 
 export const metadata: Metadata = {
   title: "Live Event Art",
@@ -64,20 +64,7 @@ export default function ArtPage() {
         {/* Hero Section */}
         <div className="grid grid-cols-1 md:grid-cols-[1fr_300px] gap-4">
           <Widget>
-            <div className="p-8 md:p-12 h-full flex flex-col justify-center">
-              <h1 className="text-3xl md:text-4xl font-normal leading-relaxed mb-4">
-                Live guest portraits
-              </h1>
-              <p className="text-lg md:text-xl text-text-secondary leading-relaxed max-w-prose mb-8">
-                Give your guests a personalized, memorable, and hand-drawn souvenir they can have forever!
-              </p>
-              <Link
-                href="#contact"
-                className="inline-block px-6 py-3 bg-text-primary text-bg-page rounded-pill text-sm font-medium hover:bg-text-secondary transition-colors w-fit"
-              >
-                Work with me!
-              </Link>
-            </div>
+            <ArtHero />
           </Widget>
           <div className="aspect-square md:aspect-auto md:h-full">
             <PhotoCarousel photos={heroPhotos} className="h-full" showIcon={false} />

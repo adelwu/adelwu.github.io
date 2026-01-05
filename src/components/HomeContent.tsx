@@ -59,9 +59,15 @@ export default function HomeContent() {
     <div className="max-w-content mx-auto px-6 md:px-12 lg:px-16">
       {/* Hero Section */}
       <section className="py-16 md:py-20 lg:py-24">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal leading-relaxed flex flex-wrap items-baseline gap-3">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-relaxed flex flex-wrap items-baseline gap-3">
           <span>hi, I&apos;m adel! I&apos;m a</span>
-          <span className="inline-flex items-center gap-2 overflow-hidden">
+          <span
+            className="inline-flex items-center gap-2 overflow-hidden"
+            style={{
+              maskImage: "linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)",
+            }}
+          >
             <span
               className={`translate-y-1 transition-all duration-300 ${
                 isAnimating ? "translate-y-full opacity-0" : "opacity-100"
