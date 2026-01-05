@@ -85,9 +85,9 @@ export default function BioWidget({ className = "" }: BioWidgetProps) {
           </p>
           <div className="text-lg text-text-secondary leading-relaxed">
             <p>
-              Today, I live in San Francisco, California. When I&apos;m not
-              working, you can usually find me cafe hopping, dancing, or trying
-              the newest restaurants.
+              Today, I live in San Francisco, California. On weekends, you can
+              usually find me cafe hopping, dancing, or trying the newest
+              restaurants.
             </p>
           </div>
         </div>
