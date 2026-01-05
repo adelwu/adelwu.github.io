@@ -33,6 +33,7 @@ export default function ProjectWidget({
               src={imageSrc}
               alt={title}
               fill
+              loading="lazy"
               className="object-cover"
             />
           ) : (

@@ -19,7 +19,7 @@ interface PhotoCarouselProps {
 export default function PhotoCarousel({
   photos,
   className = "",
-  autoPlayInterval = 3000,
+  autoPlayInterval = 2000,
   showIcon = true,
 }: PhotoCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -61,17 +61,29 @@ export default function PhotoCarousel({
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {photos.map((photo, index) => (
-          <Image
-            key={photo.src}
-            src={photo.src}
-            alt={photo.alt}
-            fill
-            className={`object-cover transition-opacity duration-300 ${
-              index === currentIndex ? "opacity-100" : "opacity-0"
-            }`}
-          />
-        ))}
+        {photos.map((photo, index) => {
+          // Only render current image and adjacent images for smooth transitions
+          const isVisible = index === currentIndex;
+          const isAdjacent =
+            index === (currentIndex - 1 + photos.length) % photos.length ||
+            index === (currentIndex + 1) % photos.length;
+
+          if (!isVisible && !isAdjacent) return null;
+
+          return (
+            <Image
+              key={photo.src}
+              src={photo.src}
+              alt={photo.alt}
+              fill
+              loading={isVisible ? "eager" : "lazy"}
+              priority={index === 0 && currentIndex === 0}
+              className={`object-cover transition-opacity duration-300 ${
+                isVisible ? "opacity-100" : "opacity-0"
+              }`}
+            />
+          );
+        })}
 
         {/* App icon overlay */}
         {showIcon && (

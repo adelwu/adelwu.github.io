@@ -6,9 +6,18 @@ import MapWidget from "@/components/widgets/MapWidget";
 import TweetWidget from "@/components/widgets/TweetWidget";
 
 export const metadata: Metadata = {
-  title: "About | Adel Wu",
+  title: "About",
   description:
-    "Learn about Adel Wu - growth at Reducto, former Meta engineer, artist, and community builder.",
+    "Learn about Adel Wu - growth at Reducto, former Meta engineer, artist, and community builder based in San Francisco.",
+  openGraph: {
+    title: "About Adel Wu",
+    description:
+      "Growth at Reducto, former Meta engineer, artist, and community builder.",
+    images: ["/images/about/profile.png"],
+  },
+  alternates: {
+    canonical: "https://adelwu.com/about",
+  },
 };
 
 const aboutPhotos: { src: string; alt: string }[] = [
