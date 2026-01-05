@@ -125,7 +125,7 @@ export default function EventInquiryForm() {
         <button
           type="button"
           onClick={handleReset}
-          className="inline-block px-6 py-3 bg-text-primary text-bg-page rounded-pill text-sm font-medium hover:bg-text-secondary transition-colors"
+          className="btn-coral inline-block px-6 py-3 rounded-pill text-sm font-medium"
         >
           Submit another inquiry
         </button>
@@ -305,7 +305,7 @@ export default function EventInquiryForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="inline-block px-6 py-3 bg-text-primary text-bg-page rounded-pill text-sm font-medium hover:bg-text-secondary transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="btn-coral inline-block px-6 py-3 rounded-pill text-sm font-medium"
             >
               {isSubmitting ? "Sending..." : "Send Inquiry"}
             </button>

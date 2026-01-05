@@ -87,3 +87,27 @@ body {
 .animate-float-fast {
   animation: float-fast 2.5s ease-in-out infinite;
 }
+
+/* 3D flat button style */
+.btn-coral {
+  background-color: theme("colors.coral");
+  color: white;
+  box-shadow: 0 4px 0 #b5614a;
+  transform: translateY(0);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+.btn-coral:hover {
+  background-color: theme("colors.coral-hover");
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #b5614a;
+}
+.btn-coral:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #b5614a;
+}
+.btn-coral:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: translateY(0);
+  box-shadow: 0 4px 0 #b5614a;
+}

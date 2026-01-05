@@ -27,6 +27,10 @@ const config: Config = {
         "bg-subtle": "#f9fafb",
         "bg-muted": "#f3f4f6",
 
+        // Accent colors
+        coral: "#E07A5F",
+        "coral-hover": "#c96a52",
+
         // Gradient colors
         gradient: {
           red: "#ff6b6b",
