@@ -21,17 +21,17 @@ export const metadata: Metadata = {
 };
 
 const aboutPhotos: { src: string; alt: string }[] = [
-  { src: "/images/about/carousel/photo-1.JPG", alt: "Photo 1" },
-  { src: "/images/about/carousel/photo-2.PNG", alt: "Photo 2" },
+  { src: "/images/about/carousel/photo-1.jpg", alt: "Photo 1" },
+  { src: "/images/about/carousel/photo-2.jpg", alt: "Photo 2" },
   { src: "/images/about/carousel/photo-3.jpg", alt: "Photo 3" },
-  { src: "/images/about/carousel/photo-4.JPG", alt: "Photo 4" },
-  { src: "/images/about/carousel/photo-5.JPG", alt: "Photo 5" },
+  { src: "/images/about/carousel/photo-4.jpg", alt: "Photo 4" },
+  { src: "/images/about/carousel/photo-5.jpg", alt: "Photo 5" },
   { src: "/images/about/carousel/photo-6.jpg", alt: "Photo 6" },
-  { src: "/images/about/carousel/photo-7.JPG", alt: "Photo 7" },
-  { src: "/images/about/carousel/photo-8.JPG", alt: "Photo 8" },
-  { src: "/images/about/carousel/photo-9.JPG", alt: "Photo 9" },
-  { src: "/images/about/carousel/photo-10.JPG", alt: "Photo 10" },
-  { src: "/images/about/carousel/photo-11.JPG", alt: "Photo 11" },
+  { src: "/images/about/carousel/photo-7.jpg", alt: "Photo 7" },
+  { src: "/images/about/carousel/photo-8.jpg", alt: "Photo 8" },
+  { src: "/images/about/carousel/photo-9.jpg", alt: "Photo 9" },
+  { src: "/images/about/carousel/photo-10.jpg", alt: "Photo 10" },
+  { src: "/images/about/carousel/photo-11.jpg", alt: "Photo 11" },
 ];
 
 export default function AboutPage() {

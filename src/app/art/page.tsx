@@ -36,24 +36,24 @@ const clientLogos = [
 ];
 
 const portfolioItems = [
-  { id: 1, videoSrc: "/videos/event-1.mp4" },
-  { id: 2, videoSrc: "/videos/event-2.mp4" },
-  { id: 3, videoSrc: "/videos/event-3.mp4" },
-  { id: 4, videoSrc: "/videos/event-4.mp4" },
-  { id: 5, videoSrc: "/videos/event-5.mp4" },
-  { id: 6, videoSrc: "/videos/event-6.mp4" },
+  { id: 1, videoSrc: "/videos/event-1.mp4", thumbnail: "/videos/event-1-poster.jpg" },
+  { id: 2, videoSrc: "/videos/event-2.mp4", thumbnail: "/videos/event-2-poster.jpg" },
+  { id: 3, videoSrc: "/videos/event-3.mp4", thumbnail: "/videos/event-3-poster.jpg" },
+  { id: 4, videoSrc: "/videos/event-4.mp4", thumbnail: "/videos/event-4-poster.jpg" },
+  { id: 5, videoSrc: "/videos/event-5.mp4", thumbnail: "/videos/event-5-poster.jpg" },
+  { id: 6, videoSrc: "/videos/event-6.mp4", thumbnail: "/videos/event-6-poster.jpg" },
 ];
 
 const heroPhotos: { src: string; alt: string }[] = [
   { src: "/images/art/art-1.jpg", alt: "Art 1" },
-  { src: "/images/art/art-2.JPG", alt: "Art 2" },
-  { src: "/images/art/art-3.JPG", alt: "Art 3" },
+  { src: "/images/art/art-2.jpg", alt: "Art 2" },
+  { src: "/images/art/art-3.jpg", alt: "Art 3" },
   { src: "/images/art/art-4.jpg", alt: "Art 4" },
   { src: "/images/art/art-5.jpg", alt: "Art 5" },
   { src: "/images/art/art-6.jpg", alt: "Art 6" },
-  { src: "/images/art/art-7.JPG", alt: "Art 7" },
-  { src: "/images/art/art-8.JPG", alt: "Art 8" },
-  { src: "/images/art/art-9.JPG", alt: "Art 9" },
+  { src: "/images/art/art-7.jpg", alt: "Art 7" },
+  { src: "/images/art/art-8.jpg", alt: "Art 8" },
+  { src: "/images/art/art-9.jpg", alt: "Art 9" },
   { src: "/images/art/art-10.jpg", alt: "Art 10" },
 ];
 
@@ -110,6 +110,7 @@ export default function ArtPage() {
                   <div key={item.id} className="w-[70vw] md:w-auto flex-shrink-0 md:flex-shrink snap-center">
                     <VideoCard
                       videoSrc={item.videoSrc}
+                      thumbnail={item.thumbnail}
                     />
                   </div>
                 ))}

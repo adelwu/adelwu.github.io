@@ -76,8 +76,8 @@ export default function PhotoCarousel({
               src={photo.src}
               alt={photo.alt}
               fill
-              loading={isVisible ? "eager" : "lazy"}
-              priority={index === 0 && currentIndex === 0}
+              loading="eager"
+              priority={isVisible || isAdjacent}
               className={`object-cover transition-opacity duration-300 ${
                 isVisible ? "opacity-100" : "opacity-0"
               }`}
